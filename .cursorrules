@@ -1,0 +1,22 @@
+# Capstone Project Stack & Conventions
+
+## Tech Stack
+- Runtime: Node.js (LTS)
+- Language: JavaScript
+- Package Manager: npm
+
+## Code Conventions
+- Use camelCase for variables and functions
+- Use PascalCase for classes
+- Write descriptive commit messages following Conventional Commits
+- Keep functions small and focused
+
+## Project Structure
+- `/src` — application source code
+- `/tests` — test files
+- `/docs` — documentation
+
+## AI Assistant Rules
+- Always ask before generating large files
+- Prefer modern ES6+ syntax
+- Explain complex logic with inline comments
