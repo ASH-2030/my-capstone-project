@@ -4,7 +4,12 @@
   "description": "AI-assisted development capstone project",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "settings": "node src/settingsForm.js",
+    "test": "node --test tests/settingsManager.test.js tests/settingsForm.test.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "joi": "^18.2.5"
+  }
 }

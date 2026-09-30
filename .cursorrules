@@ -10,13 +10,23 @@
 - Use PascalCase for classes
 - Write descriptive commit messages following Conventional Commits
 - Keep functions small and focused
+- Source files must be UTF-8 (never UTF-16). `node src/index.js` must parse without a BOM/encoding SyntaxError.
 
 ## Project Structure
 - `/src` — application source code
 - `/tests` — test files
 - `/docs` — documentation
 
+## Settings feature (testable)
+- Persist settings only after `src/settingsSchema.js` Joi validation succeeds. Never write `config.json` on invalid input.
+- Allowed fields are only `name` (trimmed, 2-80 chars), `email` (Joi email, stored lowercase), `theme` (`light` | `dark` | `system`), and `notifications` (boolean). Unknown keys must be rejected, not saved.
+- `index.js` must not seed or overwrite user settings with hardcoded demo data on startup. First run opens the form; later runs print saved settings.
+
+## Verification
+- Changes to `settingsSchema.js` or `settingsManager.js` must include tests under `/tests` that write to a temp file (not the real `config.json`) and pass via `npm test`.
+
 ## AI Assistant Rules
 - Always ask before generating large files
 - Prefer modern ES6+ syntax
 - Explain complex logic with inline comments
+- Do not accept a settings-form change as done until `npm test` has been run in the session
